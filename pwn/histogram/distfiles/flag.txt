@@ -1,0 +1,1 @@
+DUMMY{The flag exists in the working directory of histogram.bin}

@@ -1,0 +1,9 @@
+---
+name: Swap on Curve
+description: >
+  <p>One day, I tried to swap x and y coordinates of a Point on the Curve.</p>
+flag: ACSC{have_you_already_read_the_swap<-->swap?}"
+author: theoldmoon0602
+tags:
+  - crypto
+is_survey: false

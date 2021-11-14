@@ -1,0 +1,9 @@
+---
+name: Pickle Rick
+description: >
+  I found a suspicious pickle file with a script...<br>
+  Wait, who is Pickle Rick?
+flag: "ACSC{YEAH!I'm_pickle-RICK!}"
+author: "rbtree"
+tags:
+- rev

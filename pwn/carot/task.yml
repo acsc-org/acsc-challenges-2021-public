@@ -1,0 +1,9 @@
+---
+name: CArot
+description: >
+  When dealing with proxy, it is often the case that you only have one "shot".
+  flag: "ACSC{buriburi_1d3dfb9bf7654412}"
+  author: hugeh0ge
+  port: 11451
+  tags:
+  - pwn

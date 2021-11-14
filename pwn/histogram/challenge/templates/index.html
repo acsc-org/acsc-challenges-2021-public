@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Histogram!</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/css/uikit.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit-icons.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+            <h1>Histogram!</h1>
+            <form method="POST" enctype="multipart/form-data" action="/api/histogram" name="post">
+                <fieldset class="uk-fieldset">
+                    <div class="uk-width-1-2@s">
+                        <legend class="uk-legend">Upload CSV file</legend>
+                        <div class="uk-margin">
+                            <div class="js-upload uk-placeholder uk-text-center">
+                                <span uk-icon="iccon: cloud-upload"></span>
+                                <span class="uk-text-middle">Upload CSV file by dropping it here or</span>
+                                <div uk-form-custom>
+                                    <input type="file" multiple>
+                                    <span class="uk-link">selecting it</span>
+                                </div>
+                            </div>
+                            <progress id="progress" class="uk-progress" value="0" max="100" hidden></progress>
+                        </div>
+                        <ul uk-accordion>
+                            <li>
+                                <a class="uk-accordion-title uk-text-small uk-text-primary" href="#">CSV format</a>
+                                <div class="uk-accordion-content">
+                                    <p class="uk-text-small">
+                                        Each line must have 2 rows: <code>weight,height</code><br>
+                                        i.e.
+                                    </p>
+                                    <pre>65.7,177.3<br>64.2,168.9</pre>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="uk-width-1-2@s uk-inline uk-margin">
+                        <button class="uk-position-bottom-right uk-button uk-button-primary">Histogram It!</button>
+                    </div>
+                </fieldset>
+            </form>
+            <hr>
+            <div class="uk-child-width-1-3 uk-text-center" uk-grid>
+                <div>
+                    <canvas id="weight"></canvas>
+                </div>
+                <div>
+                    <canvas id="height"></canvas>
+                </div>
+                <div>
+                    <canvas id="correlation"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <script>
+         let bar = document.getElementById('progress');
+         let weight = document.getElementById('weight');
+         let height = document.getElementById('height');
+
+         function extract_data(data, min, max) {
+             let stride = (max - min) / data.length;
+             let lower = -1, upper = -1;
+             for (let i = 0; i < data.length; i++) {
+                 if (lower == -1 && data[i] > 0) lower = i;
+                 if (upper == -1 && data[data.length-i-1] > 0) {
+                     upper = data.length-i-1;
+                 }
+             }
+             
+             let xs = [], ys = [];
+             for (let i = lower; i <= upper; i++) {
+                 xs.push(min + i*stride);
+                 ys.push(data[i]);
+             }
+             return [xs, ys];
+         }
+
+         function draw_bar(ctx, data, min, max, title, xlabel, ylabel) {
+             let [xs, ys] = extract_data(data, min, max);
+             new Chart(ctx, {
+                 type: 'bar',
+                 data: {
+                     labels: xs,
+                     datasets: [{
+                         data: ys,
+                         backgroundColor: "rgba(0, 120, 250, 1.0)",
+                         borderColor: "#000",
+                     }]
+                 },
+                 options: {
+                     plugins: {
+                         title: {display: true, text: title},
+                         legend: {display: false},
+                         tooltips: {enabled: false}
+                     },
+                     scales: {
+                         x: {
+                             display: true,
+                             title: {display: true, text: xlabel}
+                         },
+                         y: {
+                             display: true,
+                             title: {display: true, text: ylabel}
+                         }
+                     }
+                 }
+             });
+         }
+
+         function draw_bubble(ctx, data, xmin, xmax, ymin, ymax,
+                              title, xlabel, ylabel) {
+             let xstride = (xmax - xmin) / data[0].length;
+             let ystride = (ymax - ymin) / data.length;
+             let list = [];
+             for (let i = 0; i < data.length; i++) {
+                 for (let j = 0; j < data[i].length; j++) {
+                     if (data[i][j] > 0) {
+                         list.push({
+                             x: xmin+j*xstride,
+                             y: ymin+i*ystride,
+                             r: data[i][j]
+                         })
+                     }
+                 }
+             }
+             new Chart(correlation, {
+                 type: 'bubble',
+                 data: {
+                     datasets: [{
+                         data: list,
+                         backgroundColor: 'rgba(0, 120, 250, 1.0)'
+                     }]
+                 },
+                 options: {
+                     plugins: {
+                         title: {display: true, text: title},
+                         legend: {display: false},
+                         tooltips: {enabled: false}
+                     },
+                     scales: {
+                         x: {
+                             display: true,
+                             title: {display: true, text: xlabel}
+                         },
+                         y: {
+                             display: true,
+                             title: {display: true, text: ylabel}
+                         }
+                     }
+                 }
+             });
+         }
+
+         function histogram(data) {
+             /* Weight histogram */
+             draw_bar(weight, data.wsum, 0, 600,
+                      "Weight Histogram", "Weight", "Count");
+
+             /* Height histogram */
+             draw_bar(height, data.hsum, 0, 300,
+                      "Height Histogram", "Height", "Count");
+
+             /* Bubble chart */
+             draw_bubble(correlation, data.map, 0, 300, 0, 600,
+                         "Correlation between Weight and Height",
+                         "Height", "Weight");
+         }
+
+         /* CSV uploader */
+         UIkit.upload('.js-upload', {
+             url: '/api/histogram',
+             multiple: false,
+             allow: '*.csv',
+             mime: 'text/csv',
+             method: 'POST',
+             name: 'csv',
+
+             loadStart: (e) => {
+                 bar.removeAttribute('hidden');
+                 bar.max = e.total;
+                 bar.value = e.loaded;
+             },
+
+             progress: (e) => {
+                 bar.value = e.loaded;
+             },
+
+             error: (e) => {
+                 UIkit.notification({
+                     message: 'Faild to upload the file',
+                     status: 'danger'
+                 });
+                 bar.style.hidden = 'hidden';
+             },
+
+             fail: (e) => {
+                 UIkit.notification({
+                     message: 'Please specify a CSV file',
+                     status: 'danger'
+                 });
+                 bar.style.hidden = 'hidden';
+             },
+
+             completeAll: (e) => {
+                 setTimeout(() => {
+                     bar.style.hidden = 'hidden';
+                 }, 1000);
+                 UIkit.notification({
+                     message: 'Upload complete!',
+                     status: 'primary'
+                 });
+
+                 try {
+                     let response = JSON.parse(e.response);
+                     if (response.status != 'success') {
+                         UIkit.notification({
+                             message: 'Conversion Error (' + response.reason + ')',
+                             status: 'danger'
+                         });
+                     } else {
+                         histogram(response.result);
+                     }
+                 } catch {
+                     UIkit.notification({
+                         message: 'Internal server error',
+                         status: 'danger'
+                     });
+                 }
+             }
+         });
+        </script>
+    </body>
+</html>

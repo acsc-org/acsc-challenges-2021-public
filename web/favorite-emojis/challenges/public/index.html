@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">    
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        <title>ACSC FE</title>
+    </head>
+    <body>
+        <div class="container py-3">
+            <header>
+                <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+                <a href="" class="d-flex align-items-center text-dark text-decoration-none">
+                    ACSC Favorite Emojis
+                </a>
+                </div>
+            
+                <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+                <h1 class="display-4 fw-normal">FAVORITE EMOJIS</h1>
+            </header>
+            
+            <main>                        
+                <div class="table-responsive">
+                <table class="table text-center">
+                    <tbody id="tables">
+                    </tbody>
+                </table>
+                </div>
+            </main>
+            
+            <footer class="pt-4 my-md-5 pt-md-5 border-top text-center">
+                <div class="row">
+                <div class="col-12 col-md">
+                    <small class="d-block mb-3 text-muted">&copy; ACSC 2021</small>
+                </div>
+                </div>
+            </footer>
+        </div>
+        <script>
+            fetch("/api/get_emojis").then(res=>res.json()).then(
+                res => {
+                    res.data.forEach((item)=>{
+                        var tr = document.createElement("tr");
+                        var th_name = document.createElement("th");
+                        th_name.innerText = item.name;
+                        var th_emoji = document.createElement("th");
+                        th_emoji.innerText = item.emoji;
+                        tr.appendChild(th_name);
+                        tr.appendChild(th_emoji);
+                        $("#tables").append(tr);
+                    })
+                }
+            )
+            
+        </script>
+    </body>
+</html>

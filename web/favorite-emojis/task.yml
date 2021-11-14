@@ -1,0 +1,9 @@
+---
+name: Favorite Emojis
+description: >
+  <a href="http://{host}:{port}/" target="_blank">service</a>
+flag: "ACSC{sharks_are_always_hungry}"
+author: shpik
+port: 5000
+tags:
+- web

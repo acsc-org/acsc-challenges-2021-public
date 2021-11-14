@@ -1,0 +1,10 @@
+{
+  "name": "acsc-cowsay",
+  "type": "module",
+  "dependencies": {
+    "@koa/router": "^10.0.0",
+    "koa": "^2.13.1",
+    "koa-basic-auth": "^4.0.0",
+    "koa-bodyparser": "^4.3.0"
+  }
+}

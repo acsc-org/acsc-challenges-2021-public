@@ -1,0 +1,13 @@
+service carot
+{
+    disable     = no
+    type        = UNLISTED
+    wait        = no
+    server      = /home/carot/run_carot.sh
+    socket_type = stream
+    protocol    = tcp
+    user        = carot
+    bind        = 127.0.0.1
+    port        = 11452
+    flags       = REUSE
+}

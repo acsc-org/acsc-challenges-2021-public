@@ -1,0 +1,21 @@
+---
+name: bitter
+description: >
+    We have tapped LPC bus in a BitLocker-protected laptop and captured the commucation between CPU and TPM.
+    Could you recover Volume Master Key from the capture?
+
+    Each capture contains wrong data at random positions due to the technical limitation of sampling rate.
+    We've captured the communication 5 times separately for correcting the glitches.
+
+    Notes:
+    * Each line in a csv file represents captured signal lines and decoded LPC bus data from the signal lines.
+    * Some bytes transmitted over LPC bus are decoded wrongfully and some other bytes are dropped.
+    * LPC bus specification: https://www.intel.com/content/dam/www/program/design/us/en/documents/low-pin-count-interface-specification.pdf
+    * Signals should be sampled on the rising edge of LCLK.
+    * You can import csv file into PulseView with column formats `t,-,*b`.
+        *  LPC decoder in sigrok-cli/PulseView doesn't work correctly for these capture.
+    * The target device is TPM 1.2.
+flag: "ACSC{8e14fc60657e9b122edffe3d4d968570507307b2ccca365423a78f0b1cdb8409}"
+author: "op"
+tags:
+- hardware

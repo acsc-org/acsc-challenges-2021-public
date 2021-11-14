@@ -1,0 +1,8 @@
+---
+name: encoder
+description: >
+  recover flag file
+flag: "ACSC{it is too easy to recover this stuff, huh?}"
+author: "havu"
+tags:
+- rev

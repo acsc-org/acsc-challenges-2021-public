@@ -1,0 +1,22 @@
+version: "2.2"
+services:
+    message_center:
+        build: ./
+        volumes:
+            - ./share/flag:/home/message_center/flag:ro
+            - ./share/message_center:/home/message_center/message_center:ro
+            - ./share/run.sh:/home/message_center/run.sh:ro
+            - ./xinetd:/etc/xinetd.d/message_center:ro
+            - ./tmp:/tmp:ro
+            - ./data:/home/message_center/data:rw
+        ports:
+            - "4869:4869"
+        expose:
+            - "4869"
+        cpus: 1
+        mem_limit: 2048M
+        shm_size: 32M
+        ulimits:
+            nproc: 4096
+            nice: 0
+

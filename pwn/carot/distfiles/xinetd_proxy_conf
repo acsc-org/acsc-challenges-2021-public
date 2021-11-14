@@ -1,0 +1,13 @@
+service proxy
+{
+    disable     = no
+    type        = UNLISTED
+    wait        = no
+    server      = /home/carot/run_proxy.sh
+    socket_type = stream
+    protocol    = tcp
+    user        = carot
+    bind        = 0.0.0.0
+    port        = 11451
+    flags       = REUSE
+}

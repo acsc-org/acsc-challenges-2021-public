@@ -1,0 +1,19 @@
+---
+name: BitLocker Artifact
+description: |
+  Get the datetime that C drive was encrypted by BitLocker!
+
+  Start: When the BitLocker Wizard was run (UTC+0, YYYY-MM-DD_HH:MM:SS)
+  End: When encryption was completed by BitLocker (UTC+0, YYYY-MM-DD_HH:MM:SS)
+
+  Flag: ACSC{Start_End}
+  ex) ACSC{2021-05-06_12:00:01_2021-05-06_12:53:11}
+
+  Download Link 1: https://1drv.ms/u/s!At0nZXK3fObIgopDx3-m4oV94gn9rw?e=UeFwCv
+  Download Link 2: https://drive.google.com/file/d/161cOni9RxsFRLJ5f5YjeOUVZ2A1ThgO5
+  SHA-1: 65B96F26BE7247E05F53F3AC45323B6332AB133F
+
+flag: "ACSC{2021-08-23_10:56:26_2021-08-23_11:01:47}"
+author: extr
+tags:
+- forensics

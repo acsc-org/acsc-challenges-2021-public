@@ -1,0 +1,8 @@
+---
+name: RSA stream
+description: >
+  <p>I made a stream cipher out of RSA! But people say I made a huge mistake. Can you decrypt my cipher?</p><br>
+flag: "ACSC{changing_e_is_too_bad_idea_1119332842ed9c60c9917165c57dbd7072b016d5b683b67aba6a648456db189c}"
+author: Bono_iPad
+tags:
+- crypto

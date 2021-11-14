@@ -1,0 +1,23 @@
+version: '3'
+services:
+    web:
+        build: 
+            context: ./
+            dockerfile: php-docker
+        volumes: 
+            - ./challenge/www:/var/www/html
+            - ./challenge/cron.php:/cron.php
+        ports: 
+            - 80:80
+        depends_on:
+            - db
+    db:
+        image: mysql
+        command: --default-authentication-plugin=mysql_native_password
+        volumes: 
+            - ./challenge/init.sql:/docker-entrypoint-initdb.d/init.sql
+        restart: on-failure:5 
+        environment: 
+            MYSQL_ROOT_PASSWORD: bcd14bc699722ba08f3ede565879c356
+        ports: 
+            - 127.0.0.1:3306:3306

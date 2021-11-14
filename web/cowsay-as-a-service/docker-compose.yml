@@ -1,0 +1,24 @@
+version: '3'
+services:
+  spawner:
+    image: ghcr.io/tyage/container-spawner:latest
+    environment:
+      - SPAWNER_IMAGE_NAME=acsc-cowsay
+      - SPAWNER_TIME_LIMIT=300
+      - SPAWNER_CONTAINER_PORT=3000
+      - SPAWNER_CONTAINER_ARGS={"environment":{"FLAG":"ACSC{(oo)<Moooooooo_B09DRWWCSX!}"},"dns":["8.8.8.8"]}
+      - RECAPTCHA_PUBLIC_KEY=6LcgtPUbAAAAAJNXH4RVssmaHczgqPqQf6DflSP4
+      - RECAPTCHA_PRIVATE_KEY=6LcgtPUbAAAAAO7DAT0_Hp4Z2hIfWFOIJZ6xXYLB
+      - SPAWNER_HOSTNAME=cowsay-nodes.chal.acsc.asia
+    ports:
+      - "5000:5000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock     
+      - ./spawner-template.html:/app/templates/index.html
+  cleaner:
+    image: ghcr.io/tyage/container-spawner-cleaner:latest
+    environment:
+      - SPAWNER_IMAGE_NAME=acsc-cowsay
+      - SPAWNER_TIME_LIMIT=300
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

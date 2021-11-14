@@ -1,0 +1,65 @@
+diff --git a/Makefile b/Makefile
+index 0565caea0362..4814abad6442 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1131,7 +1131,7 @@ export MODORDER := $(extmod_prefix)modules.order
+ export MODULES_NSDEPS := $(extmod_prefix)modules.nsdeps
+ 
+ ifeq ($(KBUILD_EXTMOD),)
+-core-y		+= kernel/ certs/ mm/ fs/ ipc/ security/ crypto/ block/
++core-y		+= kernel/ certs/ mm/ fs/ ipc/ security/ crypto/ block/ acsc/
+ 
+ vmlinux-dirs	:= $(patsubst %/,%,$(filter %/, \
+ 		     $(core-y) $(core-m) $(drivers-y) $(drivers-m) \
+diff --git a/arch/x86/entry/syscalls/syscall_64.tbl b/arch/x86/entry/syscalls/syscall_64.tbl
+index ce18119ea0d0..5c4421684aa3 100644
+--- a/arch/x86/entry/syscalls/syscall_64.tbl
++++ b/arch/x86/entry/syscalls/syscall_64.tbl
+@@ -413,3 +413,9 @@
+ 547	x32	pwritev2		compat_sys_pwritev64v2
+ # This is the end of the legacy x32 range.  Numbers 548 and above are
+ # not special and are not to be used for x32-specific syscalls.
++
++548	64	add_note			sys_add_note
++549	64	delete_note			sys_delete_note
++550	64	show_note			sys_show_note
++551	64	copy_note			sys_copy_note
++552 64 current_addr			sys_current_addr
+\ No newline at end of file
+diff --git a/include/linux/sched.h b/include/linux/sched.h
+index 32813c345115..2b74ab806a32 100644
+--- a/include/linux/sched.h
++++ b/include/linux/sched.h
+@@ -946,6 +946,8 @@ struct task_struct {
+ 	struct posix_cputimers_work	posix_cputimers_work;
+ #endif
+ 
++
++	char			note[1024];
+ 	/* Process credentials: */
+ 
+ 	/* Tracer's credentials at attach: */
+diff --git a/include/linux/syscalls.h b/include/linux/syscalls.h
+index 050511e8f1f8..c5b7b3f1290c 100644
+--- a/include/linux/syscalls.h
++++ b/include/linux/syscalls.h
+@@ -1271,6 +1271,12 @@ asmlinkage long sys_old_mmap(struct mmap_arg_struct __user *arg);
+  */
+ asmlinkage long sys_ni_syscall(void);
+ 
++asmlinkage long sys_add_note(const char __user * str);
++asmlinkage long sys_delete_note(void);
++asmlinkage long sys_show_note(const char __user * str);
++asmlinkage long sys_copy_note(const char __user * str);
++asmlinkage long sys_current_addr();
++
+ #endif /* CONFIG_ARCH_HAS_SYSCALL_WRAPPER */
+ 
+ 
+@@ -1377,4 +1383,6 @@ int __sys_getsockopt(int fd, int level, int optname, char __user *optval,
+ 		int __user *optlen);
+ int __sys_setsockopt(int fd, int level, int optname, char __user *optval,
+ 		int optlen);
++
++
+ #endif

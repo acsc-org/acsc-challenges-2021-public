@@ -1,0 +1,12 @@
+---
+name: Wonderful Hash
+description: >
+    <p>
+    My hash function is composed of AES, DES and RC4. It is Wonderful!
+    </p>
+    <code>nc {host} {port}</code>
+flag: "ACSC{M1Tm_i5_FunNY_But_Painfu1}"
+author: lyc
+port: 10217
+tags:
+- crypto

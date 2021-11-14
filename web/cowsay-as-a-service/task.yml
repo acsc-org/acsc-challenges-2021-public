@@ -1,0 +1,14 @@
+---
+name: Cowsay as a Service
+description: >
+  Enjoy your cowsay life with our Cowsay as a Service!
+  You can spawn your private instance <a href="http://{host}:{port}/" target="_blank">from here</a>.
+  Notice: Please do not spawn too many instances since our server resource is limited.
+  You can check the source code and run it in your local machine before do that.
+  Each instances are alive only for 5 minutes.
+  But don't worry! You can spawn again even if your instance expired.
+flag: "ACSC{(oo)<Moooooooo_B09DRWWCSX!}"
+author: tyage
+port: 5000
+tags:
+- web

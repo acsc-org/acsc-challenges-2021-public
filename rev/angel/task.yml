@@ -1,0 +1,11 @@
+---
+name: angel
+description: >
+  The Devil's In The Detail.
+  AngelScript SDK version is 2.35.0.
+  You can download from: https://www.angelcode.com/angelscript/downloads.html
+  The disassemble option (-d) is useful for analyzing the bytecode.
+flag: "ACSC{7he_M0rn1ng_5tar_f3ll_fr0m_h34ven_81f68e9d}"
+author: "n4nu"
+tags:
+- rev

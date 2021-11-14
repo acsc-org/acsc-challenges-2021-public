@@ -1,0 +1,11 @@
+service cbcbc
+{
+	disable = no
+	socket_type = stream
+	protocol = tcp
+	wait = no
+	user = cbcbc
+	type = UNLISTED	
+	port = 52171
+	server = /home/cbcbc/chal.py
+}

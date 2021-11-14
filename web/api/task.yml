@@ -1,0 +1,9 @@
+---
+name: API
+description: >
+  <a href="http://{host}:{port}/" target="_blank">service</a>
+flag: "ACSC{it_is_hard_to_name_a_flag..isn't_it?}"
+author: pang
+port: 7777
+tags:
+- web

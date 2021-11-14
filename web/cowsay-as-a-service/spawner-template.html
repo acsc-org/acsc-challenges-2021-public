@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello from Flask</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+  <style>
+    .g-recaptcha>div {
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body class="container d-flex justify-content-center align-items-center min-vh-100">
+
+  <main class="col-6 text-center">
+    <h1 class="mb-3">Cowsay as a Service</h1>
+    <p class="mb-5">Enjoy your cowsay with our CaaS!</p>
+
+    <form action="/" method="POST">
+      {{ form.csrf_token }}
+      <div class="mb-3">
+        {{ form.recaptcha }}
+      </div>
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Spawn instance</button>
+      </div>
+    </form>
+
+    {% if port %}
+    {% set url = "http://{}:{}@{}:{}/".format(username, password, host, port) %}
+    <div class="alert alert-primary">
+      <h4 class="alert-heading">New instance spawned!</h4>
+      <p>It lives for {{ time_limit }} seconds.</p>
+      <p>If you can't access, please wait a second until the server wakes up.</p>
+      <p>
+        <a href="{{ url }}" target="_blank" class="alert-link">{{ url }}</a>
+      </p>
+    </div>
+    {% endif %}
+  </main>
+
+</body>
+
+</html>

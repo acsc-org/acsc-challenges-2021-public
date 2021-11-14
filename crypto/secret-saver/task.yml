@@ -1,0 +1,13 @@
+---
+name: Secret Saver
+description: >
+    <p>
+    Get the flag!
+    </p>
+    <code>http://{host}/</code>
+flag: "ACSC{MAK3-CRiME-4TT4CK-GREAT-AGaiN!}"
+author: orange
+port: 80
+tags:
+- crypto
+- web

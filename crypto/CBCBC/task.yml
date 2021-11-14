@@ -1,0 +1,10 @@
+---
+name: CBCBC
+description: >
+  <p>Wow, free flags! But encrypted with CBC... twice?</p><br>
+  <code>nc {host} {port}</code>
+flag: "ACSC{wow_double_CBC_mode_cannot_stop_you_from_doing_padding_oracle_attack_nice_job}"
+author: rbtree
+port: 52171
+tags:
+- crypto

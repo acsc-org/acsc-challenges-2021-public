@@ -1,0 +1,152 @@
+banner = b"""
+                                                                                     `.inWWx*.                   
+                                                                                  `izW@MxnnnxMn;                 
+                                                                                `*WWxnnnnnnnnnnxx*`              
+                                                                               :MWnnnznnnnnnnnnnnxxi`            
+                                                                             `#@xnn#***+#+nnnnnnnnnxn,           
+                                                                            ,MWnnnn******+nnnnnnnnnnnx+          
+                                                                           :WMnnnn+*****znnnnnnnnnnnnnnn.        
+                                                                          ;@xnnnz+***+#znnnzznnnnnnnnnnnx,       
+                                                                         :@xnnnnz+*+znnnzzzzzzzznnnnnnnnnx:      
+                                                                        ,WMnnnnnnnMMxxMxnzzzzzzznnnnnnnnnnx,     
+                                                                       `MMnnnnnnnM*,,,,:*nMnzzzzznnnnnnnnnnx.    
+                                                                       zWnnnnnnnM:,,,,,,,,:+Mnzzzznnnnnnnnnnz    
+                                                                      i@nnnnnnnnxxxMMxxz+:,,,zxzzznnnnnnnnnnni   
+                                                                     .Wxnnnnnnnnzz#zz#zznMxi,,*Mzznnnnnnnnnnnx`  
+                                                                     zWnnnnnnnnzzzzzzzzzzzzxn:,iMzznnnnnnnnnnn+  
+                                                                    ;@nnnnnnnnzzzzzzzzzzzzzzzM;,ixznnnnnnnnnnnx` 
+                                                                   `MMnnnnnxMMMnzzzzzzzzzzzzzzM:,#nnnnnnnnnnnnni 
+                                                                   *@nnnnnM#,..ixxzzzzzzzzzzzzzx,,xznnnnnnnnnnn# 
+                                                                  `WxnnnnM:``````iMzzzzzzzzzzzzx*,*xnnnnnnnnnnnx`
+                                                                  +WnnnnM:.`````.`,xzzzzzzzzzzzzx,,Mnnnnnnnnnnnx.
+                                                                 .@xnnnx*.````````.,Mzzzzzzzzzzzx*,xnnnnnnnnnnnx;
+                                                                 #WnnnnM.```..``````*nzzzzzzzzzzzM:xnnnnnnnnnnnn*
+                                                                ,@nnnnnn````zn`````.,Mzz#zzzzzzzzzxxnnnnnnnnnnnn+
+                                                                zMnnnnnz````.,``````.MzMxnnxMnzzzzznnnnnnnnnnnnnz
+                                                               ,@nnnnnnz````````````,W#.````.ixnzzznnnnnnnnnnnnnn
+                                                               nMnnnnnnx```````````.*+````````.#xzznnnnnnnnnnnnnz
+                                                              :@nnnnnnzM.``````````.x`````````.`nzznnnnnnnnnnnnnn
+                                                             `MxnnnnnzMn#`.````````#;```````````,Mnnnnnnnnnnnnnnn
+                                                             *Wnnnnnzzxnx+.``````.*W`.```````````xnnnnnnnnnnnnnnz
+                                                            .WxnnnnzzzzM#xn,````.#xn`.````##`````znnnnnnnnnnnnnnn
+                                                            zMnnnxMMMxznxzzMxz#zxnzz`.````z+`````#nnnnnnnnnnnnnnn
+                                                           :@nnnMMzzznMxnMnzzzMnzzzx`.```````````nnnnnnnnnnnnnnn#
+                                                          `MxnnMxzxWWMznMzxxzxxzzzzM,```````````.Mnnnnnnnnnnnnnn+
+                                                          +WnnxMzW@@@@WzzzzzzMzzzzzzn..```````..+xnnnnnnnnnnnnnx;
+                                                         .@xnnWnM@@@@@:xzzzzMzzzzx#zn#`.```````:MnnnnnnnnnnnnnnM.
+                                                         zMnnnWz@@@@@@W@MzzzMzzzMnzzzxz.``````:Mnnnnnnnnnnnnnnnx 
+                                                        :@nnnnWz@@@@@@@#,MzzxznMzzzz#zzM#;..:zMnnnnnnnnnnnnnnnnz 
+                                                       `MxnnnnMz@@@@@@@z:nMzMMxzzzzzxnz#zxMMMnnnnnnnnnnnnnnnnnxi 
+                                                       iWnnnnnWz@@@@@@@@@x;MzzzzzzzzzxxzzzzznnnnnnnnnnnnnnnnnnM, 
+                                                      .WxnnnnnMzW@@@@@@@@;`+MnzzzzzzzznWxnnxWnnnnnnnnnnnnnnnnnM  
+                                                      #Mnnnnnnxnx@@@@@@@@z+W.zM#xMMxzzzznxxnnnnnnnnnnnnnnnnnnn#  
+                                                     ,@nnnnnnnzMz@@@@@@@@@@M:Mn`n#`n@xnzzzzznnnnnnnnnnnnnnnnnM:  
+                                                     nMnnnnnnzzxnM#@@@@@@@@@@@@n@@n@@z@WzzxnnnnnnnnnnnnnnnnnnM`  
+                                                    :@nnnnnnnzzzMzzz@@@@@@@@@@@@@@@@@@@@@nzWnnnnnnnnnnnnnnnnnz   
+                                                   `MxnznnnnnzzznMxMzx@@@@@@@@@@@@@@@@@@@@nMxnnnnnnnnnnnnnnnM;   
+                                                   iWzxMMnnnnzzzznxM:zWM@@@@@@WnnxW@@@@@@@WnMnnnnnnnnnnnnnnnM`   
+                                                  `WnxMMxnnnnzzzzzxxxM,:@@@@@@@WnnnM@@@@@@@nWnnnnnnnnnnnnnnnz    
+                                                  +WzMMMnnnnnzzzzzzxnxz;@*M@@@@@@xnnM@@@@@@nWnnnnnnnnnnnnnnM;    
+                                                 .WnzxMxnnnnnzzzzzzzzzzW#`#@@@@@@@nnn@@@@@@nWnnnnnnnnnnnnnnM     
+                                                 #MnnnMnnnnnzzzzzzzzzzzzx#n+,@@@@@xnn@@@@@WnMnnnnnnnnnnnnnx+     
+                                                .@nnnnnnnnnnzzzzzzzzzzzzzzM*`@+.@@WnnW@@@@xMxnnnnnnnnnnnnnW,     
+                                                zMnnnnnnnnnnzzzzzzzzzzzzzzznMW,`x:MnnW@@@MnWnnnnnnnnnnnnnnx      
+                                               ,@nnnnnnnnnnnzzzzzzzzzzzzzzzzzzMxM*xMM@@WxnWnnnnnnnnnnnnnnM*      
+                                               nMnnnnnnnnnnzzzzzzzzzzzzzzzzzzzzzznnMxxnnMWnnnnnnnnnnnnnnnM`      
+                                              :@nnnnnnnnnnnzzzzzzzzzzzzzzzzzzzzzzzxMMMWWxnnnnnnnnnnnnnnnx#       
+                                             `xxnnnnnnnnnnnzzzzzzzzzzzzzzzzzzzzzzznxxxnnnnnnnnnnnnnnnnnnW.       
+                                             ;@nnnnnnnnnnnnzzzzzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnxz        
+                                             MxnnnnnnnnnnnzzzzzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnM,        
+                                            iWnnnnnnnnnnnnzzzzzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnn         
+                                           `WnnnnnnnnnnnnzzzzzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnM;         
+                                           *MnnnnnnnnnnnnzzzzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnM          
+                                          .Wnnnnnnnnnnnnzzzzzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnx*          
+                                          #MnnnnnnnnnnnnzzzzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnW.          
+                                         ,@nnnnnnnnnnnnzzzzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnx#           
+                                         nxnnnnnnnnnnnnzzzzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnM,           
+                                        ;Wnnnnnnnnnnnnnzzzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnx            
+                                       `MnnnnnnnnnnnnnzzzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnMi            
+                                       +MnnnnnnnnnnnnnzzzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnM`            
+                                      ,Wnnnnnnnnnnnnnnzzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnx*             
+                                     `xxnnnnnnnnnnnnnzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnW`             
+                                     *Mnnnnnnnnnnnnnzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnx+              
+                                    .WnnnnnnnnnnnnnzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnW.              
+                                    xxnnnnnnnnnnnnnzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnx+               
+                                   *MnnnnnnnnnnnnnzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnM`               
+                                  ,Wnnnnnnnnnnnnnzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnx+                
+                                 `xxnnnnnnnnnnnnzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnW`                
+                                 +Mnnnnnnnnnnnnnzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnx#                 
+                                :WnznnnnnnnnnnnzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnM.                 
+                               `MnnxMxnnnnnnnnzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnz                  
+                               #xnzMMxnnnnnnnnzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnM:                  
+                              ;WnnzxMnnnnnnnnzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnx                   
+                             .Wnnnnnnnnnnnnnzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnxnnnnnnnnnxi                   
+                            `xxnnnnnnnnnnnnzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnxMnnnnnnnnnx`                   
+                            +MnnnnnnnnnnnnzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnxMMnnnnnnnnx*                    
+                           :WnnnnnnnnnnnnzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnMMMnnnnnnnnM`                    
+                          .MnnnnnnnnnnnnnzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnxMMMznnnnnnx#                     
+                         `xnnnnnnnnnnnnnzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnznnnnnnnM.                     
+                         #xnnnnnnnnnnnnnzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnx#                      
+                        *MnnnnnnnnnnnnnzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnW.                      
+                       ;MnnnnnnnnnnnnnnzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnM#                       
+                      ,MnnnnnnnnnnnnnnzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnW`                       
+                     ,MnnnnnnnnnnnnnnnzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnMi                        
+                    .xnnnnnnnnnnnnnnnzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnx                         
+                   .xnnnnnnnnnnnnnnnnzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnW:                         
+                  .xnnnnnnnnnnnnnnnnzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnxz                          
+                 `nnnnnnnnnnnnnnnnnnzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnW.                          
+                 nxnnnnnnnnnnnnnnnnzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnM*                           
+                #xnnnnnnnnnnnnnnnnzzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnM`                           
+               *MnnnnnnnnnnnnnnnnnzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnW;                            
+              :Wnnnnnnnnnnnnnnnnnzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnxn                             
+             .MnnnnnnnnnnnnzznnnzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnW,                             
+            `xxnnnnnnnnnnnzxxxzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnx#                              
+            #MnnnnnnnnnnnzxMMMzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnM`                              
+           ;WnnnnnnnnnnnnzMMMnzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnM;                               
+          .MnnzznnnnnnnnnzxMnzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnxn                                
+          nxzxMMnnnnnnnnnnnnzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnW.                                
+         *MzxMMMxnnnnnnnnnzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnM+                                 
+        ,WnzMMMMnnnnnnnnnzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnM`                                 
+       `xnnzxMMxnnnnnnnnnzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnW;                                  
+       +Mnnnzxxnnnnnnnnnzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnxn                                   
+      ,WnnnnnznnnnnnnnnzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnW.                                   
+     `xxnnnnnnnnnnnnnnzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnMi                                    
+     iMnnnnnnnnnnnnnnzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnxx                                     
+    `MnnnnnnnnnnnnnnzzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnW.                                     
+    *MnnnnnnnnnnnnnnzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnWi                                      
+   `WnnnnnnnnnnnnnnzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnW#                                       
+   iMnnnnnnnnnnnnnzzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnMn`                                       
+   MnnnnnnnnnnnnnnzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnMM`                                        
+  :WnnnnnnnnnnnnnzzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnxW.                                         
+  zxnnnnnnnnnnnnnzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnxW,                                          
+ `Wnnnnnnnnnnnnnzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn@:                                           
+ :WnnnnnnnnnnnnnzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnW;                                            
+ +MnnnnnnnnnnnnzzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnW*                                             
+ xxnnnnnnnnnnnnzzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnxxnnnnnnnnnnnnnnW*                                              
+`WnnnnnnnnnnnnnzzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnMMMnnnnnnnnnnnnnW#                                               
+,@nnnnnnnnnnnnnzzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnMMMMxnnnnnnnnnnnMz`                                               
+:WnnnnnnnnnnnnnzzzzzzzzzznnnnnnnnnnnnnnnnnnnnnxMMMMnnnnnnnnnnnMn                                                 
+*MnnnnnnnnnnnnnnzzzzzzznnnnnnnnnnnnnnnnnnnnnnnxMMMMznnnnnnnnnMx`                                                 
++Mnnnnnnnnnnnnnnnzzznnnnnnnnnnnnnnnnnnnnnnnnnnzxxxznnnnnnnnnxx`                                                  
+zMnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnznnnnnnnnnnxM`                                                   
+zxnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnxM.                                                    
+#xnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnxM.                                                     
+#MnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnxM.                                                      
+#MnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnxM.                                                       
+iMnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnxM.                                                        
+;WnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnxM.                                                         
+.@nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnxM.                                                          
+ MxnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnxM.                                                           
+ *MnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnMx`                                                            
+ .WnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnMn`                                                             
+  *WnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnW#`                                                              
+  `nMnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnW*                                                                
+   `xMnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnMM:                                                                 
+    `zWnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnxWz.                                                     `            
+      *Wxnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnx@x;                                                      `.            
+       .#WxnnnnnnnnnnnnnnnnnnnnnnnnnnnnM@x:`                                                                     
+         .#WMnnnnnnnnnnnnnnnnnnnnnnnxWW#,                                                                        
+           `ixWMxnnnnnnnnnnnnnnnnxW@ni`                                                                          
+              .izMWWMxxxxxxxMMW@M#;`                                                                             
+                 `.;+#nxxxzz+*;.`                                        http://www.asciify.net/ascii/ascii/11190
+"""

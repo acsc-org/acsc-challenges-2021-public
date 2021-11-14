@@ -1,0 +1,9 @@
+---
+name: sysnote
+description: >
+  Another note task. Sigh...
+flag: "ACSC{m0mmy, 1 r34lly h4t3 7hi5 n0te}"
+author: zzoru
+port: 1515
+tags:
+- pwn

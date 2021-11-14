@@ -1,0 +1,25 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = Challenge
+  FILE_GUID                      = 7f704afb-a29d-43eb-8c38-61497cfcfc29
+  MODULE_TYPE                    = UEFI_APPLICATION
+  ENTRY_POINT                    = UefiMain
+
+[Sources]
+  Challenge.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  CryptoPkg/CryptoPkg.dec
+
+[LibraryClasses]
+  UefiApplicationEntryPoint
+  UefiLib
+  BaseCryptLib
+
+[Protocols]
+  gEfiBlockIoProtocolGuid
+
+[BuildOptions]
+  # Disable optimizations such as inlining for difficulty adjustment
+  GCC:*_*_*_CC_FLAGS = -O0

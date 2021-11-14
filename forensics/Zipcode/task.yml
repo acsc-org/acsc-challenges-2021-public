@@ -1,0 +1,10 @@
+---
+name: Zipcode
+description: >
+  We got a suspicious zip file. There's a hidden flag inside it.<br>
+  The flag should be covered with ACSC{}, without quotes.<br>
+  Hint: Focus on unused characters!
+flag: "ACSC{Inspired by david and the tree from Google CTF 2021}"
+author: rbtree
+tags:
+- forensics

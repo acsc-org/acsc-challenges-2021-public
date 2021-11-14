@@ -1,0 +1,11 @@
+version: '3'
+services:
+  challenge:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - UWSGI_INI=/home/ctf/uwsgi.ini
+      - NGINX_MAX_UPLOAD=1m
+      - LISTEN_PORT=8080
+    restart: always

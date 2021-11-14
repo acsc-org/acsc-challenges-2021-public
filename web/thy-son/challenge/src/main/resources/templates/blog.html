@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>This is blog page</title>
+  </head>
+
+  <body>
+      <h1 th:text="|Hello, ${username}!|"></h1>
+      <p> You are the 514514-th guest of my blog! </p>
+
+      <br><br><br>
+
+      <div th:if="${id == '1'}">
+        <h2> Title: the first article </h2>
+        <p> Data: 21/05/2020 </p>
+        <br>
+        <p> This is the first article of my blog :) </p>
+        <p> But I realized I have nothing to write :( </p>
+      </div>
+
+      <div th:if="${id == '2'}">
+        <h2> Title: what I ate today </h2>
+        <p> Data: 23/05/2020 </p>
+        <br>
+        <p> I ate a peace of bread, French onion soup, and poached eggs :) </p>
+      </div>
+
+      <div th:if="${id == '3'}">
+        <h2> Title: got bored </h2>
+        <p> Data: 11/07/2020 </p>
+        <br>
+        <p> Writing a blog is not fun at all :( </p>
+      </div>
+
+      <a th:if="${id != '1'}" th:href="@{'/blog?id=__${previd}__&lang=__${lang}__'}">previous article</a>
+      <a th:href="@{'/blog?id=__${id}__&lang=__${lang}__'}">this article</a>
+      <a th:if="${id != '3'}" th:href="@{'/blog?id=__${nextid}__&lang=__${lang}__'}">next article</a>
+
+  </body>
+</html>

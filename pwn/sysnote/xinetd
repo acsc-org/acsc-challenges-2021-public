@@ -1,0 +1,12 @@
+service sysnote
+{
+    disable = no
+    type        = UNLISTED
+    wait        = no
+    server      = /run.sh
+    socket_type = stream
+    protocol    = tcp
+    user        = root
+    port        = 1515
+    flags       = REUSE
+}

@@ -1,0 +1,9 @@
+---
+name: Message Center
+description: >
+    Welcome to ACSC Message Center
+flag: "ACSC{ls33k_ls33k_th3_fl4g}"
+author: angelboy
+port: 4869
+tags:
+- pwn

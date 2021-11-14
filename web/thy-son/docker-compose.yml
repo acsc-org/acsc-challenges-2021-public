@@ -1,0 +1,24 @@
+version: '3'
+services:
+  spawner:
+    image: ghcr.io/tyage/container-spawner:latest
+    environment:
+      - SPAWNER_IMAGE_NAME=acsc-thyson
+      - SPAWNER_TIME_LIMIT=240
+      - SPAWNER_CONTAINER_PORT=5145
+      - SPAWNER_CONTAINER_ARGS={"dns":["8.8.8.8"]}
+      - RECAPTCHA_PUBLIC_KEY=6Lfxf3EcAAAAAGedp_j_4Xu3OAv_yICqXgnjo-q2
+      - RECAPTCHA_PRIVATE_KEY=6Lfxf3EcAAAAALD-5nqY1PPRlAkQLml_w5S4mKEs
+      - SPAWNER_HOSTNAME=thy-son-nodes.chal.acsc.asia
+    ports:
+      - "5141:5000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock     
+      - ./spawner-template.html:/app/templates/index.html
+  cleaner:
+    image: ghcr.io/tyage/container-spawner-cleaner:latest
+    environment:
+      - SPAWNER_IMAGE_NAME=acsc-thyson
+      - SPAWNER_TIME_LIMIT=240
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock     

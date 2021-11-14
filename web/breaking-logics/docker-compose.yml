@@ -1,0 +1,10 @@
+version: '3'
+services:
+    web:
+        image: tomcat:9.0.52-jdk16-openjdk
+        volumes: 
+            - ./challenge/:/usr/local/tomcat/webapps/ROOT/
+        restart: on-failure:5 
+        ports: 
+            - 80:8080
+    

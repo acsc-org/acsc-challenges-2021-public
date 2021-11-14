@@ -1,0 +1,10 @@
+---
+name: bvar
+description: >
+  <p>Create your own creations to win the shell!</p><br>
+  <code>nc {host} {port}</code>
+flag: "ACSC{PWN_1S_FUN_5W33T_D3liC1ous :)}"
+author: alstjr4192
+port: 7777
+tags:
+- pwn

@@ -1,0 +1,9 @@
+---
+name: histogram
+description: >
+  <a href="http://{host}:{port}/" target="_blank">service</a>
+flag: "ACSC{NaN_demo_iiyo}"
+author: ptr-yudai
+port: 8080
+tags:
+- pwn

@@ -1,0 +1,10 @@
+---
+name: Thy Son
+description: >
+  Don’t you think it’s annoying that there are two types of HTTP requests, GET/POST? I don’t want to juggle and use properly those different requests. Why not mix up then? So I created my blog from the groud up with this in mind!
+  <a href="http://{host}:{port}/" target="_blank">service</a>
+flag: "ACSC{waowao-abb7-42da99b70f16}"
+author: hugeh0ge
+port: 5141
+tags:
+- web
