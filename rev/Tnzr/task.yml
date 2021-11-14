@@ -1,7 +1,7 @@
 ---
 name: Tnzr
 description: >
-  A flag checker! Mark the "Flag checker" on you CTF Reversing BINGO !!
+  A flag checker! Mark the "Flag checker" on your CTF Reversing BINGO !!
 flag: "ACSC{WELCOM3_T0_TH3_ACSC_W3_N33D_U}"
 author: "terrynini38514"
 tags:
