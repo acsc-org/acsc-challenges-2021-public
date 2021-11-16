@@ -15,6 +15,6 @@ RUN touch /home/stypr/.hushlogin && \
 
 # Run dev version of harold.kim
 RUN git clone https://github.com/stypr/harold.kim
-RUN cd harold.kim && yarn install
+RUN cd harold.kim && git checkout d44eaa1b6629adf073d90e2316446b470bdf247e && yarn install
 
 CMD ["sh", "-c", "service ssh start && cd /srv/harold.kim/ && yarn build && yarn dev --port 80 2>&1 >/dev/null"]
